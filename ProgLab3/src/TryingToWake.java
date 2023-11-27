@@ -1,4 +1,6 @@
-public interface TryingToWake {
-    void shakingVictim(String name1, String name2);
-    void grabVictimHand(String name1, String name2);
+import java.util.Objects;
+
+public interface TryingToWake{
+    void shakingVictim(Victim dunno);
+    void grabVictimHand(Victim dunno);
 }

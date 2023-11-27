@@ -39,13 +39,13 @@ public class LittleMen extends LittleMenStatus{
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         LittleMen shorty = (LittleMen) obj;
-        return this.ans == shorty.ans;
+        return this.ans == shorty.ans && this.name == shorty.name && this.role == shorty.role;
     }
 
     @Override
     public int hashCode(){
         System.out.print(Objects.hashCode(ans));
-        return Objects.hashCode(ans);
+        return Objects.hash(ans, name, role);
     }
 
     @Override

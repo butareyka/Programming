@@ -1,4 +1,4 @@
 public interface Heartbeat {
     void checkingVictimPulse();
-    void listenVictimHeartbeat(String name1, String name2);
+    void listenVictimHeartbeat(Victim dunno);
 }

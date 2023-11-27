@@ -1,3 +1,3 @@
 public interface Sniff{
-    void giveToSniffToVictim(String name1, String name2);
+    void giveToSniffToVictim(Victim dunno);
 }

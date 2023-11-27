@@ -6,28 +6,24 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int amountOfPears = scanner.nextInt();
 
-        Dunno pers1 = new Dunno("Dunno", "Пострадавший", "Ел груши", amountOfPears, Status.NOSTATUS);
-        Pilulkin pers2 = new Pilulkin("Pilulkin","Доктор", "Не ел груши");
-        
-        String name1 = pers1.getName();
-        String name2 = pers2.getName();
+        Victim dunno = new Victim("Dunno", "Пострадавший", "Ел груши", amountOfPears, Status.NOSTATUS);
 
-        if (pers1.getAmtOfEatenPears() > 0){
-            switch (pers1.getAmtOfEatenPears()){
+        if (dunno.getAmtOfEatenPears() > 0){
+            switch (dunno.getAmtOfEatenPears()){
                 case 0:
-                    pers1.setStatus(Status.HUNGRY);
+                    dunno.setStatus(Status.HUNGRY);
                     break;
                 case 1,2,3,4:
-                    pers1.setStatus(Status.NORMAL);
+                    dunno.setStatus(Status.NORMAL);
                     break;
                 case 5,6,7:
-                    pers1.setStatus(Status.CLOSEYES);
+                    dunno.setStatus(Status.CLOSEYES);
                     break;
                 case 8,9,10,11:
-                    pers1.setStatus(Status.WHITEFACE);
+                    dunno.setStatus(Status.WHITEFACE);
                     break;
                 default:
-                    pers1.setStatus(Status.DEATH);
+                    dunno.setStatus(Status.DEATH);
                     break;
             }
         }
@@ -36,7 +32,7 @@ public class Main {
         }
 
 
-        switch (pers1.getStatus()){
+        switch (dunno.getStatus()){
             case HUNGRY:
                 System.out.println(Status.HUNGRY.getStringStatus());
                 break;
@@ -45,33 +41,33 @@ public class Main {
                 break;
             case CLOSEYES:
                 System.out.println(Status.CLOSEYES.getStringStatus());
-                pers2.shakingVictim(name2, name1);
+                Doctor.getPilulkin().shakingVictim(dunno);
                 System.out.println(Status.WAKEUP.getStringStatus());
                 break;
             case WHITEFACE:
                 System.out.println(Status.CLOSEYES.getStringStatus());
-                pers2.shakingVictim(name2, name1);
+                Doctor.getPilulkin().shakingVictim(dunno);
                 System.out.println(Status.WHITEFACE.getStringStatus());
-                pers2.grabVictimHand(name2, name1);
-                pers2.checkingVictimPulse();
+                Doctor.getPilulkin().grabVictimHand(dunno);
+                Doctor.getPilulkin().checkingVictimPulse();
                 System.out.println(Status.WEAKPULSE.getStringStatus());
-                pers2.listenVictimHeartbeat(name2, name1);
+                Doctor.getPilulkin().listenVictimHeartbeat(dunno);
                 System.out.println(Status.NOHEARTBEAT.getStringStatus());
-                pers2.giveToSniffToVictim(name2, name1);
-                pers1.victimSniffing(name1);
+                Doctor.getPilulkin().giveToSniffToVictim(dunno);
+                dunno.victimSniffing();
                 System.out.println(Status.WAKEUP.getStringStatus());
                 break;
             case DEATH:
                 System.out.println(Status.CLOSEYES.getStringStatus());
-                pers2.shakingVictim(name2, name1);
+                Doctor.getPilulkin().shakingVictim(dunno);
                 System.out.println(Status.WHITEFACE.getStringStatus());
-                pers2.grabVictimHand(name2, name1);
-                pers2.checkingVictimPulse();
+                Doctor.getPilulkin().grabVictimHand(dunno);
+                Doctor.getPilulkin().checkingVictimPulse();
                 System.out.println(Status.WEAKPULSE.getStringStatus());
-                pers2.listenVictimHeartbeat(name2, name1);
+                Doctor.getPilulkin().listenVictimHeartbeat(dunno);
                 System.out.println(Status.NOHEARTBEAT.getStringStatus());
-                pers2.giveToSniffToVictim(name2, name1);
-                pers1.victimSniffing(name1);
+                Doctor.getPilulkin().giveToSniffToVictim(dunno);
+                dunno.victimSniffing();
                 System.out.println(Status.DEATH.getStringStatus());
 
         }
