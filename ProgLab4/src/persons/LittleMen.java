@@ -1,18 +1,22 @@
+package persons;
+
+import enums.LittleMenStatus;
+
 import java.util.Objects;
 
-public class LittleMen extends LittleMenStatus{
+public class LittleMen extends abilities.LittleMenStatus {
     protected String name;
-    private String role;
-    private String ans;
+    private final String role;
+    private final String ans;
     private int amtOfEatenPears;
-    private Status status;
+    private LittleMenStatus littleMenStatus;
 
-    public LittleMen(String name, String role, String ans, int amtOfEatenPears, Status status) {
+    public LittleMen(String name, String role, String ans, int amtOfEatenPears, LittleMenStatus littleMenStatus) {
         this.name = name;
         this.role = role;
         this.ans = ans;
         this.amtOfEatenPears = amtOfEatenPears;
-        this.status = status;
+        this.littleMenStatus = littleMenStatus;
     }
 
     public LittleMen(String name, String role, String ans) {
@@ -21,14 +25,13 @@ public class LittleMen extends LittleMenStatus{
         this.ans = ans;
     }
 
-
     @Override
     public String toString(){
         return  "LittleMan{" +
                 "Name '" + name + '\'' +
                 ", Role '" + role + '\'' +
                 ", Answer '" + ans + '\'' +
-                ", Status" + status + '\'' +
+                ", LittleMenStatus" + littleMenStatus + '\'' +
                 ", Amount of eaten pears = " + amtOfEatenPears +
                 "}";
     }
@@ -48,15 +51,14 @@ public class LittleMen extends LittleMenStatus{
     }
 
     @Override
-    public void setStatus(Status status){
-        this.status = status;
+    public void setStatus(LittleMenStatus littleMenStatus){
+        this.littleMenStatus = littleMenStatus;
     }
 
     @Override
-    public Status getStatus(){
-        return this.status;
+    public LittleMenStatus getStatus(){
+        return this.littleMenStatus;
     }
-
 
     public int getAmtOfEatenPears(){
         return amtOfEatenPears;
