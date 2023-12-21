@@ -4,6 +4,10 @@ import abilities.*;
 import enums.*;
 import exceptions.CheckMedicalException;
 
+import java.util.EmptyStackException;
+import java.util.List;
+import java.util.Scanner;
+
 public class Doctor extends LittleMen implements Heartbeat, Sniff, TryingToWake, GiveNames {
     private static final Doctor pilulkin = new Doctor("Pilulkin","Доктор", "Не ел груши");
     private Doctor(String name, String role, String ans){
@@ -39,11 +43,11 @@ public class Doctor extends LittleMen implements Heartbeat, Sniff, TryingToWake,
     @Override
     public void giveToSniffToVictim(Victim dunno) throws CheckMedicalException {
         class SniffingObject {
-            final String medical = Medical.NASHATR.getMedical();
+            final Medical medical = Medical.NASHATR;
         }
         SniffingObject sniffingMedical = new SniffingObject();
-        if (sniffingMedical.medical != null) {
-            System.out.println(this.name + " решает дать " + dunno.name + " понюхать " + sniffingMedical.medical);
+        if (sniffingMedical.medical.getMedical() != null) {
+            System.out.println(this.name + " решает дать " + dunno.name + " понюхать " + sniffingMedical.medical.getMedical());
         }
         else{
             throw new CheckMedicalException();

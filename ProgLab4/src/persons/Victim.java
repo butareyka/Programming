@@ -2,11 +2,7 @@ package persons;
 
 import abilities.*;
 import enums.LittleMenStatus;
-import enums.PartOfBody;
-import exceptions.*;
 import java.util.Scanner;
-
-
 
 public class Victim extends LittleMen implements Sniffing, GiveNames{
     public static class Num{

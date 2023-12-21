@@ -2,7 +2,7 @@ package enums;
 
 public enum Medical {
     NASHATR("нашатырь"),
-    AMIAK("амиак");
+    AMIAK(null);
 
     private String s;
 
