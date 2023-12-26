@@ -2,14 +2,16 @@ package persons;
 
 import abilities.*;
 import enums.LittleMenStatus;
+import enums.PartOfBody;
+
 import java.util.Scanner;
 
 public class Victim extends LittleMen implements Sniffing, GiveNames{
+    static Scanner scanner = new Scanner(System.in);
     public static class Num{
-        static Scanner scanner = new Scanner(System.in);
         static int num;
-
         static int setNumOfPears() {
+            System.out.println("Введите количество груш:");
             num = scanner.nextInt();
             return num;
         }
@@ -17,6 +19,7 @@ public class Victim extends LittleMen implements Sniffing, GiveNames{
 
     public static int amountOfPears = Num.setNumOfPears();
     private static final Victim victim = new Victim("Dunno", "Пострадавший", "Ел груши", amountOfPears, LittleMenStatus.NOSTATUS);
+
     private Victim(String name, String role, String ans, int amtOfEatenPears, LittleMenStatus littleMenStatus){
         super(name, role, ans, amtOfEatenPears, littleMenStatus);
     }
@@ -31,32 +34,23 @@ public class Victim extends LittleMen implements Sniffing, GiveNames{
         return this.name;
     }
 
-    public class Hands{
-        private String position;
-
-        public Hands(String position){
-            this.position = position;
-        }
-
-        public String getHandPosition(){
-            return this.position;
-        }
-        public void setHandsCondition(String position){
-            this.position = position;
-        }
-    }
 
     public class Eyes{
-        private String condition;
+        private PartOfBody condition;
 
-        public Eyes(String condition){
+        public Eyes(PartOfBody condition){
             this.condition = condition;
         }
 
-        public String getEyesCondition(){
-            return this.condition;
+        public void closeEyes(){
+            System.out.println("Кроме того, что " + getName() + LittleMenStatus.CLOSEYES + ", он еще" + condition.getStringStatusPartOfBody());
         }
-        public void setEyesCondition(String condition){
+
+        public void openEyes(){
+            System.out.println(condition.getStringStatusPartOfBody());
+        }
+
+        public void setEyesCondition(PartOfBody condition){
             this.condition = condition;
         }
     }

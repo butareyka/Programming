@@ -1,12 +1,11 @@
 package enums;
 
 public enum PartOfBody {
-    OPEN(" открыл глаза"),
+    OPEN("И открыл глаза!!!!!"),
     CLOSE(" закрыл глаза"),
-    UP(" поднял руки"),
-    DOWN(" опустил руки");
+    UNKNOWN(" неизвестно");
 
-    private String s;
+    private final String s;
 
     PartOfBody(String s){
         this.s = s;

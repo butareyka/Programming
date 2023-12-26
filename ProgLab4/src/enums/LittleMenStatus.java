@@ -12,7 +12,7 @@ public enum LittleMenStatus {
     WATCHING(" наблюдают за работой "),
     NOSTATUS("");
 
-    private String s;
+    private final String s;
 
     LittleMenStatus(String s){
         this.s = s;

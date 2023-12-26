@@ -1,6 +1,7 @@
 package persons;
 
 import enums.LittleMenStatus;
+import enums.PartOfBody;
 
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class LittleMen extends abilities.LittleMenStatus {
     private int amtOfEatenPears;
     private LittleMenStatus littleMenStatus;
 
-    public LittleMen(String name, String role, String ans, int amtOfEatenPears, LittleMenStatus littleMenStatus) {
+    public LittleMen(String name, String role, String ans, int amtOfEatenPears, LittleMenStatus littleMenStatus ) {
         this.name = name;
         this.role = role;
         this.ans = ans;

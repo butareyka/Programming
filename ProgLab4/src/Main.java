@@ -4,8 +4,6 @@ import exceptions.*;
 
 public class Main{
     public static void main(String[] args) throws CheckMedicalException {
-        System.out.println("Введите количество груш:");
-
         MinorCharacters guys = new MinorCharacters("Vintic and Shpuntic", "наблюдатели", "не ели"){
             {
                 this.watching();
@@ -15,8 +13,7 @@ public class Main{
             }
         };
 
-        Victim.Hands hands = Victim.getVictim().new Hands(PartOfBody.DOWN.getStringStatusPartOfBody());
-        Victim.Eyes eyes = Victim.getVictim().new Eyes(PartOfBody.CLOSE.getStringStatusPartOfBody());
+        Victim.Eyes eyes = Victim.getVictim().new Eyes(PartOfBody.UNKNOWN);
 
         if (Victim.getVictim().getAmtOfEatenPears() > 0){
             switch (Victim.getVictim().getAmtOfEatenPears()){
@@ -49,20 +46,18 @@ public class Main{
                 System.out.println(LittleMenStatus.NORMAL.getStringStatus());
                 break;
             case CLOSEYES:
-                System.out.println(Victim.getVictim().getName() + hands.getHandPosition());
-                System.out.println(Victim.getVictim().getName() + eyes.getEyesCondition());
+                eyes.setEyesCondition(PartOfBody.CLOSE);
                 System.out.println(LittleMenStatus.CLOSEYES.getStringStatus());
+                eyes.closeEyes();
                 Doctor.getPilulkin().shakingVictim(Victim.getVictim());
                 System.out.println(LittleMenStatus.WAKEUP.getStringStatus());
-                hands.setHandsCondition(PartOfBody.UP.getStringStatusPartOfBody());
-                eyes.setEyesCondition(PartOfBody.OPEN.getStringStatusPartOfBody());
-                System.out.println(Victim.getVictim().getName() + hands.getHandPosition());
-                System.out.println(Victim.getVictim().getName() + eyes.getEyesCondition());
+                eyes.setEyesCondition(PartOfBody.OPEN);
+                eyes.openEyes();
                 break;
             case WHITEFACE:
-                System.out.println(Victim.getVictim().getName() + hands.getHandPosition());
-                System.out.println(Victim.getVictim().getName() + eyes.getEyesCondition());
+                eyes.setEyesCondition(PartOfBody.CLOSE);
                 System.out.println(LittleMenStatus.CLOSEYES.getStringStatus());
+                eyes.closeEyes();
                 Doctor.getPilulkin().shakingVictim(Victim.getVictim());
                 System.out.println(LittleMenStatus.WHITEFACE.getStringStatus());
                 Doctor.getPilulkin().grabVictimHand(Victim.getVictim());
@@ -73,15 +68,12 @@ public class Main{
                 Doctor.getPilulkin().giveToSniffToVictim(Victim.getVictim());
                 Victim.getVictim().victimSniffing();
                 System.out.println(LittleMenStatus.WAKEUP.getStringStatus());
-                hands.setHandsCondition(PartOfBody.UP.getStringStatusPartOfBody());
-                eyes.setEyesCondition(PartOfBody.OPEN.getStringStatusPartOfBody());
-                System.out.println(Victim.getVictim().getName() + hands.getHandPosition());
-                System.out.println(Victim.getVictim().getName() + eyes.getEyesCondition());
+                eyes.setEyesCondition(PartOfBody.OPEN);
+                eyes.openEyes();
                 break;
             case DEATH:
-                System.out.println(Victim.getVictim().getName() + hands.getHandPosition());
-                System.out.println(Victim.getVictim().getName() + eyes.getEyesCondition());
                 System.out.println(LittleMenStatus.CLOSEYES.getStringStatus());
+                eyes.closeEyes();
                 Doctor.getPilulkin().shakingVictim(Victim.getVictim());
                 System.out.println(LittleMenStatus.WHITEFACE.getStringStatus());
                 Doctor.getPilulkin().grabVictimHand(Victim.getVictim());
